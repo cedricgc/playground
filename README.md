@@ -1,0 +1,1 @@
+This repository contains various mini-projects and practice problems I am working on.
