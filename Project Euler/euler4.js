@@ -8,12 +8,12 @@
 
 function isPalindrome(n) {
 	n = String(n);
-	for(i = 0; i < n.length; i++) {
+	// Only need to check half the word
+	for(i = 0; i < Math.ceil(n.length / 2); i++) {
 		if(n[i] !== n[(n.length - 1) - i]) {
 			return false;
 		}
 	}
-	n = parseInt(n);
 	return true;
 }
 
