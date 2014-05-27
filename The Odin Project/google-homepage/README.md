@@ -1,0 +1,1 @@
+This is my first HTML/CSS project inspired by the Odin Project (link: http://www.theodinproject.com/web-development-101/html-css).

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Google</title>
+		<!-- I used a reset css to clear away any default formatting that would
+		mess up my custom styling. I also added the favicon (the logo on the title bar). -->
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="shortcut icon" href="./images/favicon">
+	</head>
+	<body>
+		<!-- divs for the header and footer bars are useful to organize the links on each.
+		Making the container divs relative and whatever structure to hold the links absolute
+		is useful here-->
+		<div id="container">
+			<div id="topbar">
+				<!-- unorded lists work well for organizing the links. make sure to list them from right to left order. -->
+				<ul>
+					<li>
+						<a href="#">
+							<!-- border-radius: 100% makes complete circles -->
+							<img src="./images/blueperson.jpg"  style="border-radius: 100%"/>
+						</a>
+					</li>
+					<li><div id="share">Share</div></li>
+					<li>
+						<a href="https://plus.google.com/u/0/notifications/all?hl=en">
+							<img src="./images/notification.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.google.com/intl/en/about/products/">
+							<img src="./images/apps.png">
+						</a>
+					</li>
+					<li><a href="https://images.google.com/">Images</a></li>
+					<li><a href="https://mail.google.com">Gmail</a></li>
+					<li><a href="https://plus.google.com">+Name</a></li>
+				</ul>
+			</div>
+			<img id="logo" src="./images/logo.png">
+			<div id="searchbar">
+				<form action="#" method="post">
+					<input name="search" type="search">
+				</form>
+			<div id="searchOptions">
+				<div class="button">Google Search</div>
+				<div class="button">I'm Feeling Lucky</div>
+			</div>
+			<div id="bottombar">
+				<ul id="bottomright">
+					<li><a href="https://www.google.com/preferences">Settings</a></li>
+					<li>
+						<a href="http://www.google.com/intl/en/policies/">Privacy & Terms</a>
+					</li>
+				</ul>
+				<ul id="bottomleft">
+					<li><a href="https://www.google.com/intl/en/about/">About</a></li>
+					<li><a href="https://www.google.com/services/">Business</a></li>
+					<li><a href="http://www.google.com/intl/en/ads/">Advertising</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
