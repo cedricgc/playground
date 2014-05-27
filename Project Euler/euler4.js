@@ -20,16 +20,20 @@ function isPalindrome(n) {
 
 function largestPalindrome() {
 	var big = 0;
-	var compare = 0;
-	for(j = 999; j >= 100; j--) {
-		for(k = 999; k >= 100; k--) {
-			compare = j * k;
-			if(isPalindrome(compare)) {
-				if(compare > big) {
-					big = compare;
-				}
+	var looper1 = 999;
+	while(looper1 >= 100) {
+		var looper2 = 999
+		while(looper2 >= looper1) {
+			var compare = looper1 * looper2;
+			if(compare <= big) {
+				break;
 			}
+			if(isPalindrome(compare)) {
+				big = compare;
+			}
+			looper2--;
 		}
+		looper1--;
 	}
 	return big;
 }
