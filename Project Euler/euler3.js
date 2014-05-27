@@ -4,7 +4,7 @@
 
 
 // Check out http://en.wikipedia.org/wiki/Primality_test
-// 
+// Can skip even numbers since if they are divisible they can be divided by 2 also
 
 var primes = [],
 	daNumber = 600851475143,
