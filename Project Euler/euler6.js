@@ -31,7 +31,7 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 // http://en.wikipedia.org/wiki/Square_pyramidal_number
 var sumOfSquares = function(max) {
-	return ((2 * (max * max * max)) + (3 * (max * max)) + max) / 6;
+	return ((2 * (Math.pow(max, 3)) + (3 * (Math.pow(max, 2))) + max) / 6;
 }
 
 // http://en.wikipedia.org/wiki/Summation
