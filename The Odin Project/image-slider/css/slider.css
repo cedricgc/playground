@@ -1,0 +1,35 @@
+.wrapper {
+	width: 600px;
+	margin: 0 auto;
+	color: #666;
+}
+
+#slider {
+	width: 600px;
+	height: 400px;
+	overflow: hidden; /*Only show one image at a time, keeps images contained in div*/
+	margin: 30px auto;
+}
+
+#slider > img {
+	width: 600px;
+	height: 400px;
+	float: left;
+	display: none;
+}
+
+/*Next and Previous buttons*/
+a {
+	padding: 5px 10px;
+	background-color: #F0F0F0;
+	margin-top: 30px;
+	text-decoration: none;
+}
+
+a.left {
+	float: left;
+}
+
+a.right {
+	float: right;
+}
