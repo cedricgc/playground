@@ -50,3 +50,12 @@ function showSlide(id) {
 	sliderNext = id + 1;
 	startSlider();
 }
+
+$("#slider > img").hover(
+	function() {
+		stopLoop();
+	},
+	function() {
+		startSlider();
+	}
+);
