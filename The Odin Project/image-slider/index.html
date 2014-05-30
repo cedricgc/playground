@@ -11,8 +11,10 @@
 			<img id="3" src="images/image3.jpg"/>
 			<img id="4" src="images/image4.jpg"/>
 		</div>
-		<a href="#" class="left">Previous</a>
-		<a href="#" class="right">Next</a>
+		<!-- onclick links to the function in the js files defined by <script>
+			 returns false to exit prevent reloading of page from # -->
+		<a href="#" class="left" onclick="prev(); return false;">Previous</a>
+		<a href="#" class="right" onclick="next(); return false;">Next</a>
 	</div>
 	<!-- Put JS under html so html is loaded first -->
 	<script type="text/javascript" src="js/jQuery.js"></script>
