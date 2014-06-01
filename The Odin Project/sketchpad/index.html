@@ -13,12 +13,10 @@
 		</p>
 		<br/>
 		<form>
-			<input type="checkbox"/>Show Grid
-			<button id="dimensions">Choose Dimensions</button>
-			<button id="color">Choose Color</button>
-			<button id="trail">Trail</button>
-			<button id="random">Random Colors</button>
-			<button id="clear">Clear</button>
+			<input type="checkbox" name="borders" onclick="borders()" />Show Grid
+			<button id="1" onclick="generatePadType(1)">Default</button>
+			<button id="2" onclick="generatePadType(2)">Trail</button>
+			<button id="3" onclick="generatePadType(3)">Random Colors</button>
 		</form>
 	</div>
 	<div class="sketchpad"></div>
