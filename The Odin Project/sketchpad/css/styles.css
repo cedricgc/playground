@@ -4,10 +4,10 @@ body {
 
 #options {
 	width: 90%;
-	height: 100px;
-	margin: 20px auto;
+	height: 120px;
+	margin: 15px auto;
 	background-color: #CDCDCD;
-	padding-top: 10px;
+	padding-top: 5px;
 	text-align: center;
 	border-radius: 26px;
 }
@@ -19,4 +19,17 @@ body {
 
 form {
 	display: inline-block;
+}
+
+.sketchpad {
+	width: 1000px;
+	height: 1000px;
+	margin: 15px auto;
+	position: relative;
+	/*background-color: #4D4D4D;*/
+}
+
+.square {
+	display: inline-block;
+	/*position: absolute;*/
 }

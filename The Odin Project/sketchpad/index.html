@@ -8,12 +8,21 @@
 	<div id="options">
 		<h2>Sketchpad!</h2>
 		<br/>
+		<p>
+			Move your cursor over an area to change its color, choose from the options below:
+		</p>
+		<br/>
 		<form>
-			<input type="text" value="8 and 16"/>
-			<input type="submit" value="GO"/>
+			<input type="checkbox"/>Show Grid
+			<button id="dimensions">Choose Dimensions</button>
+			<button id="color">Choose Color</button>
+			<button id="trail">Trail</button>
+			<button id="random">Random Colors</button>
+			<button id="clear">Clear</button>
 		</form>
 	</div>
 	<div class="sketchpad"></div>
+	<!-- Load javascript after html -->
 	<script type="text/javascript" src="js/jQuery.js"></script>
 	<script type="text/javascript" src="js/sketchpad.js"></script>
 </body>
