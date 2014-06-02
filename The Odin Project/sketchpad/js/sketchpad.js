@@ -1,11 +1,13 @@
 
 var boxSize = $(".sketchpad").width();
 var defaultSquares = 25;
+var defaultColor = "white";
+var CurrentColor;
 
 $(document).ready(function() {
 	// initialize board
     $(':input#borders').prop('checked', false);
-    newSize();
+    createSketchPad(defaultSquares);
 
     // listeners for all buttons
 	$('input#borders').change( function() {
@@ -21,6 +23,14 @@ $(document).ready(function() {
 		newSize();
 	});
 
+	$("#default").click(function() {
+		defaultOption();
+	});
+
+	$("#colorChoice").click(function() {
+		colorOption();
+	});
+
     $("#random").click(function() {
         randomOption();
     });
@@ -28,16 +38,13 @@ $(document).ready(function() {
     $("#trail").click(function() {
         trailOption();
     });
-
-    $("#default").click(function() {
-		defaultOption();
-	});
 });
 
 function newSize() {
 	$(".sketchpad").html("");
 	var numSquares = parseFloat(prompt("How many boxes (1-128) do you want on each side? " + 
 		"RETURN for default sides."));
+	// Check for valid input
 	if(isNaN(numSquares) ||  (numSquares < 1 || numSquares > 128)) {
 		numSquares = defaultSquares;
 	}
@@ -51,7 +58,7 @@ function createSketchPad(userBoxes) {
 	}
 	$(".square").width(squareSize);
 	$(".square").height(squareSize);
-
+	// reset the option to default
 	defaultOption();
 }
 
@@ -65,7 +72,26 @@ function clearBoard() {
 function defaultOption() {
 	clearBoard();
 	$(".square").mouseover(function() {
-		$(this).css("background-color", "white");
+		$(this).css("background-color", defaultColor);
+	});
+}
+
+// generates hex values to use in changing the color
+function getRandomColor() {
+	return (Math.random().toString(16) + '000000').slice(2, 8);
+}
+
+function colorOption() {
+	var userColor = prompt("Input a hex value to change the color to, " + 
+		"RETURN for default.", "#");
+	// http://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation
+	// dat regex tho
+	var isHexColor = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(userColor);
+	if(!isHexColor) {
+		userColor = defaultColor;
+	}
+	$(".square").mouseover(function() {
+		$(this).css("background-color", userColor);
 	});
 }
 
@@ -74,11 +100,6 @@ function randomOption() {
 	$(".square").mouseover(function() {
 		$(this).css("background-color", getRandomColor());
 	});
-}
-
-// generates hex values to use in changing the color
-function getRandomColor() {
-	return (Math.random().toString(16) + '000000').slice(2, 8);
 }
 
 function trailOption() {
