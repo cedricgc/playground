@@ -58,6 +58,7 @@ function createSketchPad(userBoxes) {
 
 function clearBoard() {
 	$(".square").unbind(); // unbind to remove other event listeners on squares
+	// reset all elements to black and opaque
 	$(".square").css("background-color", "black");
 	$(".square").css("opacity", 1);
 }
@@ -76,6 +77,7 @@ function randomOption() {
 	});
 }
 
+// generates hex values to use in changing the color
 function getRandomColor() {
 	return (Math.random().toString(16) + '000000').slice(2, 8);
 }
