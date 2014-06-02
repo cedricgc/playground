@@ -83,12 +83,12 @@ function getRandomColor() {
 
 function colorOption() {
 	var userColor = prompt("Input a hex value to change the color to, " + 
-		"RETURN for default.", "#");
+		"RETURN for random color.", "#");
 	// http://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation
 	// dat regex tho
 	var isHexColor = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(userColor);
 	if(!isHexColor) {
-		userColor = defaultColor;
+		userColor = getRandomColor();
 	}
 	$(".square").mouseover(function() {
 		$(this).css("background-color", userColor);
