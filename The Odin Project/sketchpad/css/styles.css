@@ -23,7 +23,6 @@ form {
 
 .sketchpad {
 	width: 1000px;
-	height: 1000px;
 	margin: 15px auto;
 	overflow: auto;
 }
@@ -36,5 +35,7 @@ form {
 
 /*Will use with toggle to turn grid on/off*/
 .outline {
-	outline: 1px solid white;
+	border: 1px solid white;
 }
+
+.trail{}

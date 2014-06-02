@@ -1,35 +1,59 @@
-var defaultSquares = 25;
+
 var boxSize = $(".sketchpad").width();
+var defaultSquares = 25;
 
 $(document).ready(function() {
-	createSketchPad(defaultSquares);
-	draw();
-	clear();
-	trail();
-	random();
+	// initialize board
+    $(':input#borders').prop('checked', false);
+    newSize();
+
+    // listeners for all buttons
+	$('input#borders').change( function() {
+	    if($(this).is(':checked')) {
+	    	$('.square').css('outline', '1px solid white');
+	    } 
+	    else {
+	        $('.square').css('outline', "none");
+	    }
+	});
+
+	$("#newSize").click(function() {
+		newSize();
+	});
+
+    $("#random").click(function() {
+        randomOption();
+    });
+
+    $("#trail").click(function() {
+        trailOption();
+    });
+
+    $("#default").click(function() {
+		defaultOption();
+	});
 });
+
+function newSize() {
+	$(".sketchpad").html("");
+	var numSquares = parseFloat(prompt("How many boxes (1-128) do you want on each side? " + 
+		"RETURN for default sides."));
+	if(isNaN(numSquares) ||  (numSquares < 1 || numSquares > 128)) {
+		numSquares = defaultSquares;
+	}
+	createSketchPad(numSquares);
+}
 
 function createSketchPad(userBoxes) {
 	var squareSize = boxSize / userBoxes;
+	alert(squareSize);
 	for(var i = 0; i < (userBoxes * userBoxes); i++) {
 		$('.sketchpad').append('<div class="square"></div>');
 	}
 	$(".square").width(squareSize);
 	$(".square").height(squareSize);
-}
 
-function draw() {
-	$(".square").mouseover(function() {
-		$(this).css("background-color", "blue");
-	});
-}
-
-// wrapper for the button option
-function clear() {
-	$("#clear").click(function() {
-		clearBoard();
-		draw();
-	});
+	defaultOption();
 }
 
 function clearBoard() {
@@ -38,30 +62,17 @@ function clearBoard() {
 	$(".square").css("opacity", 1);
 }
 
-// function outline() {
-// 	$("#borders").change(function() {
-// 		$(".square").addClass(".outline");
-// 	}));
-// }
-
-function newSize() {
-	$("#newSize").click(function() {
-		$(".sketchpad").html("");
-		var numSquares = prompt("How many boxes (1-128) do you want on each side? " + 
-			"Return for default sides.");
-		if(isNaN(numSquares) || numSquares < 1 || numSquares > 128) {
-			numSquares = defaultSquares;
-		}
-		createSketchPad(numSquares);
+function defaultOption() {
+	clearBoard();
+	$(".square").mouseover(function() {
+		$(this).css("background-color", "white");
 	});
 }
 
-function random() {
-	$("#random").click(function() {
-		clearBoard();
-		$(".square").mouseover(function() {
-			$(this).css("background-color", getRandomColor());
-		});
+function randomOption() {
+	clearBoard();
+	$(".square").mouseover(function() {
+		$(this).css("background-color", getRandomColor());
 	});
 }
 
@@ -69,14 +80,13 @@ function getRandomColor() {
 	return (Math.random().toString(16) + '000000').slice(2, 8);
 }
 
-function trail() {
-	$("#trail").click(function() {
-		clearBoard();
-		$(".square").mouseenter(function() {
-			$(this).fadeTo(0, 0);
-		});
-		$(".square").mouseleave(function() {
-			$(this).fadeTo(1000, 1);
-		});
+function trailOption() {
+	clearBoard();
+	$(".square").mouseenter(function() {
+		$(this).fadeTo(0, 0);
+	});
+	$(".square").mouseleave(function() {
+		$(this).fadeTo(600, 1);
 	});
 }
+
