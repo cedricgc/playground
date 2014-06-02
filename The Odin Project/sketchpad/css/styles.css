@@ -22,21 +22,19 @@ form {
 }
 
 .sketchpad {
-	width: 960px;
+	width: 1000px;
+	height: 1000px;
 	margin: 15px auto;
 	overflow: auto;
 }
 
 .square {
 	float: left;
-	background-color: #4D4D4D;
+	background-color: black;
+	display: inline-block;
 }
 
 /*Will use with toggle to turn grid on/off*/
 .outline {
 	outline: 1px solid white;
-}
-
-.break {
-	clear: both;
 }
