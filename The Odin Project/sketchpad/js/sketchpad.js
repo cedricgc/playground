@@ -46,7 +46,6 @@ function newSize() {
 
 function createSketchPad(userBoxes) {
 	var squareSize = boxSize / userBoxes;
-	alert(squareSize);
 	for(var i = 0; i < (userBoxes * userBoxes); i++) {
 		$('.sketchpad').append('<div class="square"></div>');
 	}
