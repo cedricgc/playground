@@ -31,12 +31,16 @@ $(document).ready(function() {
 		colorOption();
 	});
 
-    $("#random").click(function() {
-        randomOption();
-    });
-
     $("#trail").click(function() {
         trailOption();
+    });
+
+    $("#gradient").click(function() {
+    	gradientOption();
+    });
+
+    $("#random").click(function() {
+        randomOption();
     });
 });
 
@@ -109,6 +113,16 @@ function trailOption() {
 	});
 	$(".square").mouseleave(function() {
 		$(this).fadeTo(600, 1);
+	});
+}
+
+function gradientOption() {
+	clearBoard();
+	$(".square").mouseover(function() {
+		var currentOpacity = $(this).css("opacity")
+		if(currentOpacity != 0) {
+			$(this).css("opacity", currentOpacity - .10);
+		}
 	});
 }
 
