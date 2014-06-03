@@ -1,8 +1,8 @@
-
 var boxSize = $(".sketchpad").width();
 var defaultSquares = 25;
 var defaultColor = "white";
 var CurrentColor;
+var canDraw = true;
 
 $(document).ready(function() {
 	// initialize board
@@ -19,29 +19,44 @@ $(document).ready(function() {
 	    }
 	});
 
-	$("#newSize").click(function() {
-		newSize();
+	
+	$(document).mousedown(function() {
+		canDraw = true;
 	});
 
-	$("#default").click(function() {
-		defaultOption();
+	$(document).mouseup(function() {
+		canDraw = false;
 	});
-
-	$("#colorChoice").click(function() {
-		colorOption();
-	});
-
-    $("#trail").click(function() {
-        trailOption();
-    });
-
-    $("#gradient").click(function() {
-    	gradientOption();
-    });
-
-    $("#random").click(function() {
-        randomOption();
-    });
+	
+	while(canDraw) {
+		$("#newSize").click(function() {
+			newSize();
+		});
+	
+		$("#default").click(function() {
+			defaultOption();
+		});
+	
+		$("#colorChoice").click(function() {
+			colorOption();
+		});
+	
+	    $("#trail").click(function() {
+	        trailOption();
+	    });
+	
+	    $("#gradient").click(function() {
+	    	gradientOption();
+	    });
+	
+	    $("#random").click(function() {
+	        randomOption();
+	    });
+	
+	    $("#draw").click(function() {
+	    	drawOption();
+	    });
+	};
 });
 
 function createSketchPad(userBoxes) {
@@ -124,5 +139,11 @@ function gradientOption() {
 			$(this).css("opacity", currentOpacity - .10);
 		}
 	});
+}
+
+function drawOption() {
+	clearBoard;
+	alert("hold down the mouse button to draw on the board. " +
+		"Your current color is " + CurrentColor);
 }
 
